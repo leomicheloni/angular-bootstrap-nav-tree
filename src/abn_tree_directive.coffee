@@ -192,6 +192,9 @@ module.directive 'abnTree',['$timeout',($timeout)->
 
         if not branch.classes?
           branch.classes = []
+          
+        if not branch.show?
+          branch.show = true
 
         #
         # icons can be Bootstrap or Font-Awesome icons:
@@ -217,7 +220,8 @@ module.directive 'abnTree',['$timeout',($timeout)->
           label     : branch.label
           classes   : branch.classes
           tree_icon : tree_icon
-          visible   : visible
+          visible   : visible,
+          show      : branch.show
 
         #
         # recursively add all children of this branch...( at Level+1 )
